@@ -15,3 +15,14 @@ parameters:
             - LogicException
             - Doctrine\DBAL\Types\ConversionException
             - Nette\InvalidStateException
+
+    ignoreErrors:
+        -
+            message: '#Parameter \#1 \$value .* of method Nepada\\BirthNumberDoctrine\\BirthNumberType::convertToPHPValue\(\) should be contravariant with parameter \$value .* of method Doctrine\\DBAL\\Types\\Type::convertToPHPValue\(\)#'
+            path: src/BirthNumberDoctrine/BirthNumberType.php
+        -
+            message: '#Parameter \#1 \$value .* of method Nepada\\BirthNumberDoctrine\\BirthNumberType::convertToDatabaseValue\(\) should be contravariant with parameter \$value .* of method Doctrine\\DBAL\\Types\\Type::convertToDatabaseValue\(\)#'
+            path: src/BirthNumberDoctrine/BirthNumberType.php
+        -
+            message: '#Throwable is never thrown in the corresponding try block#'
+            path: src/BirthNumberDoctrine/BirthNumberType.php
