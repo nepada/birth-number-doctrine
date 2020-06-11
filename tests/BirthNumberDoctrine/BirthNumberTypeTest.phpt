@@ -23,7 +23,9 @@ class BirthNumberTypeTest extends TestCase
 
     private BirthNumberType $type;
 
-    /** @var AbstractPlatform|MockInterface */
+    /**
+     * @var AbstractPlatform|MockInterface
+     */
     private AbstractPlatform $platform;
 
     protected function setUp(): void
