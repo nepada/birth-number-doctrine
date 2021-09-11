@@ -65,7 +65,7 @@ class BirthNumberTypeTest extends TestCase
             },
             ConversionException::class,
             sprintf(
-                'Could not convert PHP value \'foo\' of type \'string\' to type \'%1$s\'. Expected one of the following types: null, %1$s, birth number string',
+                'Could not convert PHP value \'foo\'%%a?%% to type %%S?%%%1$s%%S?%%. Expected one of the following types: null, %1$s, birth number string',
                 BirthNumber::class,
             ),
         );
