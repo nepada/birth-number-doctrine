@@ -73,7 +73,7 @@ class BirthNumberTypeTest extends TestCase
 
     /**
      * @dataProvider getDataForConvertToDatabaseValue
-     * @param mixed $value
+     * @param BirthNumber|string|null $value
      * @param string|null $expected
      */
     public function testConvertToDatabaseValueSucceeds($value, ?string $expected): void
@@ -115,7 +115,7 @@ class BirthNumberTypeTest extends TestCase
 
     /**
      * @dataProvider getDataForConvertToPHPValue
-     * @param mixed $value
+     * @param BirthNumber|string|null $value
      * @param BirthNumber|null $expected
      */
     public function testConvertToPHPValueSucceeds($value, ?BirthNumber $expected): void
