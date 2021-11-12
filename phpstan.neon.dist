@@ -5,6 +5,7 @@ includes:
     - vendor/spaze/phpstan-disallowed-calls/extension.neon
     - vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
     - tests/PHPStan/disallowedCalls.neon
+    - tests/PHPStan/conditional.config.php
 
 parameters:
     level: max
@@ -27,7 +28,4 @@ parameters:
             path: src/BirthNumberDoctrine/BirthNumberType.php
         -
             message: '#Parameter \#1 \$value .* of method Nepada\\BirthNumberDoctrine\\BirthNumberType::convertToDatabaseValue\(\) should be contravariant with parameter \$value .* of method Doctrine\\DBAL\\Types\\Type::convertToDatabaseValue\(\)#'
-            path: src/BirthNumberDoctrine/BirthNumberType.php
-        -
-            message: '#Dead catch - Throwable is never thrown in the try block#'
             path: src/BirthNumberDoctrine/BirthNumberType.php
