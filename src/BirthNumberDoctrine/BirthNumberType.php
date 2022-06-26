@@ -36,7 +36,7 @@ class BirthNumberType extends StringType
         try {
             return BirthNumber::fromString($value);
         } catch (\Throwable $exception) {
-            throw ConversionException::conversionFailed($value, $this->getName());
+            throw ConversionException::conversionFailed($value, $this->getName(), $exception);
         }
     }
 
@@ -55,7 +55,7 @@ class BirthNumberType extends StringType
             try {
                 $value = BirthNumber::fromString($value);
             } catch (\Throwable $exception) {
-                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', BirthNumber::class, 'birth number string']);
+                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', BirthNumber::class, 'birth number string'], $exception);
             }
         }
 
