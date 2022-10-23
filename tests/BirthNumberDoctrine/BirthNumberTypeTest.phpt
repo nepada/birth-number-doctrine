@@ -39,7 +39,6 @@ class BirthNumberTypeTest extends TestCase
             Type::addType(BirthNumberType::NAME, BirthNumberType::class);
         }
 
-        /** @var BirthNumberType $type */
         $type = Type::getType(BirthNumberType::NAME);
         Assert::type(BirthNumberType::class, $type);
         $this->type = $type;
