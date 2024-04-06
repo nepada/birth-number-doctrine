@@ -40,16 +40,15 @@ Usage
 
 Example usage in the entity:
 ```php
-use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\Entity;
 use Nepada\BirthNumber\BirthNumber;
 
-/**
- * @ORM\Entity
- */
+#[Entity]
 class Person
 {
 
-    /** @ORM\Column(type=BirthNumber::class, nullable=false) */
+    #[Column(type: BirthNumber::class, nullable: false)]
     private BirthNumber $birthNumber;
 
     public function getBirthNumber(): BirthNumber
