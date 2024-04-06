@@ -5,14 +5,20 @@ namespace Nepada\BirthNumberDoctrine;
 
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
+use Doctrine\DBAL\Types\Exception\InvalidType;
+use Doctrine\DBAL\Types\Exception\ValueNotConvertible;
 use Doctrine\DBAL\Types\StringType;
 use Nepada\BirthNumber\BirthNumber;
+use function class_exists;
 
 class BirthNumberType extends StringType
 {
 
     public const NAME = BirthNumber::class;
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function getName(): string
     {
         return static::NAME;
@@ -34,7 +40,9 @@ class BirthNumberType extends StringType
         try {
             return BirthNumber::fromString($value);
         } catch (\Throwable $exception) {
-            throw ConversionException::conversionFailed($value, $this->getName(), $exception);
+            throw class_exists(ValueNotConvertible::class)
+                ? ValueNotConvertible::new($value, $this->getName(), null, $exception)
+                : throw ConversionException::conversionFailed($value, $this->getName(), $exception);
         }
     }
 
@@ -51,18 +59,26 @@ class BirthNumberType extends StringType
             try {
                 $value = BirthNumber::fromString($value);
             } catch (\Throwable $exception) {
-                throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', BirthNumber::class, 'birth number string'], $exception);
+                throw class_exists(InvalidType::class)
+                    ? InvalidType::new($value, $this->getName(), ['null', BirthNumber::class, 'birth number string'], $exception)
+                    : ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', BirthNumber::class, 'birth number string'], $exception);
             }
         }
 
         return $value->toStringWithoutSlash();
     }
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
     {
         return true;
     }
 
+    /**
+     * @deprecated Kept for DBAL 3.x compatibility
+     */
     public function getDefaultLength(AbstractPlatform $platform): int
     {
         return 10;
@@ -76,7 +92,7 @@ class BirthNumberType extends StringType
         $fieldDeclaration['length'] = $this->getDefaultLength($platform);
         $fieldDeclaration['fixed'] = true;
 
-        return $platform->getVarcharTypeDeclarationSQL($fieldDeclaration);
+        return parent::getSQLDeclaration($fieldDeclaration, $platform);
     }
 
 }
