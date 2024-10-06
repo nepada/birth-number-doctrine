@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=8.1.0 <8.4",
+        "php": ">=8.1.0 <8.5",
         "doctrine/dbal": "^3.4@dev || ^4.0@dev",
         "nepada/birth-number": "^1.0@dev"
     },
