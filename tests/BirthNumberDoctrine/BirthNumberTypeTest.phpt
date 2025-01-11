@@ -79,7 +79,7 @@ class BirthNumberTypeTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForConvertToDatabaseValue(): array
     {
@@ -125,7 +125,7 @@ class BirthNumberTypeTest extends TestCase
     }
 
     /**
-     * @return mixed[]
+     * @return list<mixed[]>
      */
     protected function getDataForConvertToPHPValue(): array
     {

@@ -14,6 +14,9 @@ use function class_exists;
 class BirthNumberType extends StringType
 {
 
+    /**
+     * @final
+     */
     public const NAME = BirthNumber::class;
 
     /**
@@ -85,7 +88,7 @@ class BirthNumberType extends StringType
     }
 
     /**
-     * @param mixed[] $fieldDeclaration
+     * @param array<string, mixed> $fieldDeclaration
      */
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
     {
