@@ -43,7 +43,7 @@ class BirthNumberTypeTest extends TestCase
         Assert::type(BirthNumberType::class, $type);
         $this->type = $type;
 
-        $this->platform = \Mockery::mock(AbstractPlatform::class);
+        $this->platform = @\Mockery::mock(AbstractPlatform::class);
     }
 
     public function testGetName(): void
