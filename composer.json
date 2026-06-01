@@ -20,7 +20,7 @@
         "nepada/birth-number": "^1.0@dev"
     },
     "require-dev": {
-        "nette/tester": "2.6.0",
+        "nette/tester": "2.6.1",
         "mockery/mockery": "1.6.12",
         "phpstan/phpstan": "2.1.54",
         "phpstan/phpstan-strict-rules": "2.0.10",
