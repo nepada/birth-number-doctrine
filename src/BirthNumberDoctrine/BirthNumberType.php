@@ -30,7 +30,10 @@ class BirthNumberType extends StringType
     /**
      * @param BirthNumber|string|null $value
      */
-    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?BirthNumber
+    public function convertToPHPValue(
+        mixed $value,
+        AbstractPlatform $platform,
+    ): ?BirthNumber
     {
         if ($value === null) {
             return $value;
@@ -52,7 +55,10 @@ class BirthNumberType extends StringType
     /**
      * @param BirthNumber|string|null $value
      */
-    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string
+    public function convertToDatabaseValue(
+        mixed $value,
+        AbstractPlatform $platform,
+    ): ?string
     {
         if ($value === null) {
             return $value;
@@ -90,7 +96,10 @@ class BirthNumberType extends StringType
     /**
      * @param array<string, mixed> $fieldDeclaration
      */
-    public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform): string
+    public function getSQLDeclaration(
+        array $fieldDeclaration,
+        AbstractPlatform $platform,
+    ): string
     {
         $fieldDeclaration['length'] = $this->getDefaultLength($platform);
         $fieldDeclaration['fixed'] = true;

@@ -73,7 +73,10 @@ class BirthNumberTypeTest extends TestCase
     /**
      * @dataProvider getDataForConvertToDatabaseValue
      */
-    public function testConvertToDatabaseValueSucceeds(BirthNumber|string|null $value, ?string $expected): void
+    public function testConvertToDatabaseValueSucceeds(
+        BirthNumber|string|null $value,
+        ?string $expected,
+    ): void
     {
         Assert::same($expected, $this->type->convertToDatabaseValue($value, $this->platform));
     }
@@ -113,7 +116,10 @@ class BirthNumberTypeTest extends TestCase
     /**
      * @dataProvider getDataForConvertToPHPValue
      */
-    public function testConvertToPHPValueSucceeds(BirthNumber|string|null $value, ?BirthNumber $expected): void
+    public function testConvertToPHPValueSucceeds(
+        BirthNumber|string|null $value,
+        ?BirthNumber $expected,
+    ): void
     {
         $actual = $this->type->convertToPHPValue($value, $this->platform);
         if ($expected === null) {
