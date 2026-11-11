@@ -41,7 +41,7 @@ if (class_exists(ValueNotConvertible::class)) { // DBAL 3.x compatibility
     ];
 }
 
-if (InstalledVersions::satisfies(new VersionParser(), 'doctrine/dbal', '<=4.0') && PHP_VERSION_ID >= 8_04_00) { // wtf fail on PHP 8.4 + lowest deps
+if (InstalledVersions::satisfies(new VersionParser(), 'doctrine/dbal', '<=4.0')) {
     $config['parameters']['ignoreErrors'][] = [
         'message' => '#^Invalid type mixed to throw\\.$#',
         'path' => __DIR__ . '/../../src/BirthNumberDoctrine/BirthNumberType.php',
